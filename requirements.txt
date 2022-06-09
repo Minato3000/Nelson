@@ -1,0 +1,9 @@
+pyttsx3
+SpeechRecognition
+datetime
+wikipedia
+pywhatkit
+bs4
+googlesearch-python
+pycaw
+googletrans
