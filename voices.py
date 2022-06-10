@@ -4,6 +4,6 @@ voices = engine.getProperty('voices')
 for voice in voices:
     print(voice, voice.id)
     engine.setProperty('voice', voice.id)
-    engine.say("Hello World!")
+    engine.say("good morning")
     engine.runAndWait()
     engine.stop()

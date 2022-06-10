@@ -22,41 +22,43 @@ translator = Translator()
 
 engine = pyt.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice',voices[3].id)
+engine.setProperty('voice',voices[2].id)
 engine.setProperty('rate', 180)
 engine.setProperty('volume', 0.7)
 
 def joke():
-    myjokes = ["bored of being bored because being bored is boring....ha ha ha ha ha ha",
-            "What do you call an Englishman with an IQ of 50?  Colonel, sir.....ha ha ha ha ha ha",
-            "They say an Englishman laughs three times at a joke. The first timewhen everybody gets it, the second a week later when he thinks he getsit, the third time a month later when somebody explains it to him.....ha ha ha ha ha ha",
-            "Why do cows wear bells?Because their horns don't work....ha ha ha ha ha ha",
-            "my life....ha ha ha ha ha ha",
-            "your life....ha ha ha ha ha ha",
-            "What did the buffalo say to his son when leaving for college ? bison....ha ha ha ha ha ha",
-            " I visited my new friend in his flat. He told me to make myself at home. So I threw him out. I hate having visitors....ha ha ha ha ha ha",
-            ]
+    joke1 = trans("bored of being bored because being bored is boring....ha ha ha ha ha ha")
+    joke2 = trans("What do you call an Englishman with an IQ of 50?  Colonel, sir.....ha ha ha ha ha ha")
+    joke3 = trans("They say an Englishman laughs three times at a joke. The first timewhen everybody gets it, the second a week later when he thinks he getsit, the third time a month later when somebody explains it to him.....ha ha ha ha ha ha")
+    joke4 = trans("Why do cows wear bells?Because their horns don't work....ha ha ha ha ha ha")
+    joke5 = trans("my life....ha ha ha ha ha ha")
+    joke6 = trans("your life....ha ha ha ha ha ha")
+    joke7 = trans("What did the buffalo say to his son when leaving for college ? bison....ha ha ha ha ha ha")
+    joke8 = trans(" I visited my new friend in his flat. He told me to make myself at home. So I threw him out. I hate having visitors....ha ha ha ha ha ha")
+    myjokes = [joke1, joke2, joke3, joke4, joke5, joke6, joke7, joke8]
     randomjoke = random.choice(myjokes)
     print(randomjoke)
     speak(randomjoke)
 
 def motivation():
-    moti = ["its a shame for a man to grow old without seeing the beauty and strength his body is capable of",
-            "one whos ideal is mortal will die when his ideal dies , but when ones ideal is immortal he himself must become immortal to attain it",
-            "pain is only in the mind",
-            "Success is not how high you have climbed, but how you make a positive difference to the world.",
-            "Never lose hope. Storms make people stronger and never last forever.",
-            "strong men make great times,great times make weak men,weak men make tough times,tough times make strong men",
-            "All our dreams can come true, if we have the courage to pursue them.",
-            "The best time to plant a tree was 20 years ago. The second best time is now.",
-            "If people are doubting how far you can go, go so far that you can’t hear them anymore.",
-            "Everything you can imagine is real."]
+    moti1 = trans("its a shame for a man to grow old without seeing the beauty and strength his body is capable of")
+    moti2 = trans("one whos ideal is mortal will die when his ideal dies , but when ones ideal is immortal he himself must become immortal to attain it")
+    moti3 = trans("pain is only in the mind")
+    moti4 = trans("Success is not how high you have climbed, but how you make a positive difference to the world.")
+    moti5 = trans("Never lose hope. Storms make people stronger and never last forever.")
+    moti6 = trans("strong men make great times,great times make weak men,weak men make tough times,tough times make strong men")
+    moti7 = trans("All our dreams can come true, if we have the courage to pursue them.")
+    moti8 = trans("The best time to plant a tree was 20 years ago. The second best time is now.")
+    moti9 = trans("If people are doubting how far you can go, go so far that you can't hear them anymore.")
+    moti10 = trans("Everything you can imagine is real.")
+    moti = [moti1, moti2, moti3, moti4, moti5, moti6, moti7, moti8, moti9, moti10]
     randommoti = random.choice(moti)
     print(randommoti)
     speak(randommoti)
 
 def list():
-    print("How are you - General interaction\nTell about yourself - About our virtual assistant\nwho are you - About our virtual assistant\nWhat can you do - Tell about the things VA can do \nTime - Will tell current date and time\nweather - Will tell weather of current location\njoke - Tell a joke\nmotivation - Tell a motivational quote\nopen <name> - Open the given website name\nsearch <name> - Search the given name in google\nIncrease volume - Will increase volume by 28% \nDecrease volume - Will decrease volume by 28%\nlaunch <app_name> - Launch apps in system \nopen uv - Element of surprise  \nSleep - Nelson will go to sleep")
+    how = trans("How are you - General interaction\nTell about yourself - About our virtual assistant\nwho are you - About our virtual assistant\nWhat can you do - Tell about the things VA can do \nTime - Will tell current date and time\nweather - Will tell weather of current location\njoke - Tell a joke\nmotivation - Tell a motivational quote\nopen <name> - Open the given website name\nsearch <name> - Search the given name in google\nIncrease volume - Will increase volume by 28% \nDecrease volume - Will decrease volume by 28%\nlaunch <app_name> - Launch apps in system \nopen uv - Element of surprise  \nSleep - Nelson will go to sleep")
+    speak(how)
 
 def speak(audio):
     engine.say(audio)
@@ -105,8 +107,7 @@ def listen():
 
 
 def about():
-    abouttxt1 = trans(
-        "I am Nelson....I was devloped by students of Artificial intelligence and data science department....")
+    abouttxt1 = trans("I am Nelson....I was devloped by students of Artificial intelligence and data science department....")
     abouttxt2 = trans("I am still learning and open to criticism ")
     speak(abouttxt1)
     speak(abouttxt2)
@@ -164,21 +165,24 @@ def decrese_vol():
 def app(query):
     appname = query[7:]
     print(appname)
-    speak('opening '+ appname)
+    opentxt = trans("opening ")
+    speak(opentxt + appname)
     appname = appname.replace(" ","")
     os.system(appname)
 
 #open websites
 def website(query):
     site = query[5:]
-    speak("opening website "+ site)
+    opentxt = trans("opening website ")
+    speak(opentxt+ site)
     site = site.replace(" ","")
     webbrowser.open("www."+site+".com")
 
 #watch youtube videos
 def youtube(query):
     utube = query[6:]
-    openingtxt = trans("Opening youtube "+utube)
+    opentxt = trans("Opening youtube ")
+    openingtxt = trans(opentxt+utube)
     speak(openingtxt)
     pywhatkit.playonyt(utube)
 
